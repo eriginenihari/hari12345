@@ -1,0 +1,126 @@
+Dpod_Dashboard – ren-win-dev
+
+ 
+
+ 
+
+Create UAA service instance
+Service instance name – Dpod_Dashboard
+
+Admin client secret – dpod2.0
+
+Create Client
+Client ID – Dpod_Dashboard
+
+Check authorization_code, client_credentials, refresh_token
+
+Client_secret  - corp@123
+
+Redirect uri – specify app uri & localhost uri
+
+Login to ren-wind-dev space in cf
+Cf a
+
+Bind service using cf bind service [app_name]Dpod_Dashboard
+
+app_name – give your app-name i.e – dashboard-data-ren-wind-dev-run-aws……
+
+after getting env goto samlapi.corporate.ge.com
+
+ 
+
+ 
+
+ 
+
+4.Configurations in url - samlapi.corporate.ge.com
+
+ 
+
+CI:Dpod_Dashboard
+
+ 
+
+Entity ID:
+
+ 
+
+Syntax:
+
+<UAA ID>.cloudfoundry-saml-login
+
+ 
+
+Example:
+
+for example 22e58341-a890-4bce-b96a-c4fe4141e77b.cloudfoundry-saml-login
+
+replace with your UAA ID
+
+ 
+
+Base URL
+
+ 
+
+Syntax:
+
+<UAA ID>.predix-uaa.run.aws-usw02-pr.ice.predix.io
+
+ 
+
+Example:
+
+https://22e58341-a890-4bce-b96a-c4fe4141e77b.predix-uaa.run.aws-usw02-pr.ice.predix.io
+
+ 
+
+ACS URL
+
+ 
+
+Syntax:
+
+/saml/SSO/alias/<UAA ID>.cloudfoundry-saml-login
+
+ 
+
+Example:
+
+/saml/SSO/alias/22e58341-a890-4bce-b96a-c4fe4141e77b.cloudfoundry-saml-login
+
+ 
+
+5.After getting meta data url download xml and paste in SAML meta data page in Identity providers in predix console
+
+ 
+
+6. open angular code
+
+Siteboard.component.ts
+
+Update the privateapiTableurl with the service url
+
+ 
+
+7. open manifest.yml
+
+Update name,services,client ID, base64, enterexitapi,logouturl,fsenv, uaaurl, username & password
+
+ 
+
+8. build the code
+
+9.push the code
+
+ 
+
+Ren-wind-dev Service url:
+
+https://dashboard-data-ren-wind-dev.run.aws-usw02-pr.ice.predix.io/api/dashboard/fetchDashboardData
+
+ 
+
+Ren-wind-dev app url:
+
+https://site-dashboard-app-ren-wind-dev.run.aws-usw02-pr.ice.predix.io
